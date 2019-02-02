@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: nav"></nav>
 
-<form method = "post">
-    <input type="text" name="clientName" />
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label for="name-field">Client Name</label>
+        <input class="form-control" id="name-field" type="text" name="clientName" />
+    </div>
+    <div class="form-group">
+        <label for="contact-field">Contact Name</label>
+        <input class="form-control" id="contact-field" type="text" name="clientContact" />
+    </div>
     <input type="submit" value="Add Client" />
 </form>
 

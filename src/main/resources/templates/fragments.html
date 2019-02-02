@@ -5,13 +5,16 @@
     <title th:text="${title}">SPC Client Database</title>
 
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
 
     <nav th:fragment="nav">
-        <a href="/clients">Client List</a>
-        <a href="/clients/add">Add Client</a>
+        <a href="/clients">Client List</a> |
+        <a href="/clients/add">Add Client</a> |
+        <a href="/clients/remove">Remove Client</a>
     </nav>
 
 </body>
