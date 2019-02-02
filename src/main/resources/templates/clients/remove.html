@@ -9,8 +9,8 @@
 <form method="post">
 
     <div th:each="client : ${clients}" class="checkbox">
-        <input type="checkbox" name="client" th:value="${client.name}" th:id="${client}" />
-        <label th:for="${client.name}" th:text="${client.name}"></label>
+        <input type="checkbox" name="clientIds" th:value="${client.clientId}" th:id="${client}" />
+        <label th:for="${client.clientId}" th:text="${client.name}"></label>
         <br />
     </div>
 
