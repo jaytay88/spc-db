@@ -13,19 +13,21 @@ public class Client {
     private String location;
     private String startDate;
     private String endDate;
+    private Integer employeeCount;
 
     public Client() {
         clientId = nextId;
         nextId++;
     }
 
-    public Client(String name, String contact, String location, String startDate, String endDate) {
+    public Client(String name, String contact, String location, String startDate, String endDate, Integer employeeCount) {
         this();
         this.name = name;
         this.contact = contact;
         this.location = location;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.employeeCount = employeeCount;
     }
 
     public int getClientId() {
@@ -74,5 +76,13 @@ public class Client {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public Integer getEmployeeCount() {
+        return employeeCount;
+    }
+
+    public void setEmployeeCount(Integer employeeCount) {
+        this.employeeCount = employeeCount;
     }
 }

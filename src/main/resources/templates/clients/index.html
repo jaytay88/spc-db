@@ -16,6 +16,7 @@
             <th>Office Location</th>
             <th>Contract Start Date</th>
             <th>Contract End Date</th>
+            <th>Number of Employees</th>
         </tr>
 
         <tr th:each="client : ${clients}">
@@ -24,6 +25,7 @@
             <td th:text="${client.location}"></td>
             <td th:text="${client.startDate}"></td>
             <td th:text="${client.endDate}"></td>
+            <td th:text="${client.employeeCount}"></td>
         </tr>
     </table>
 
