@@ -13,11 +13,17 @@
         <tr>
             <th>Name</th>
             <th>Contact Name</th>
+            <th>Office Location</th>
+            <th>Contract Start Date</th>
+            <th>Contract End Date</th>
         </tr>
 
         <tr th:each="client : ${clients}">
             <td th:text="${client.name}"></td>
             <td th:text="${client.contact}"></td>
+            <td th:text="${client.location}"></td>
+            <td th:text="${client.startDate}"></td>
+            <td th:text="${client.endDate}"></td>
         </tr>
     </table>
 

@@ -4,12 +4,13 @@ import org.launchcode.spcdb.models.Client;
 import org.launchcode.spcdb.models.ClientData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
+import javax.validation.Valid;
 
 
 @Controller
@@ -27,11 +28,18 @@ public class ClientController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddClientForm(Model model) {
         model.addAttribute("title", "Add Client");
+        model.addAttribute(new Client());
         return "clients/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddClientForm(@ModelAttribute Client newClient) {
+    public String processAddClientForm(@ModelAttribute @Valid Client newClient,
+                                       Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Client");
+            return "clients/add";
+        }
+
         ClientData.add(newClient);
         return "redirect:";
     }

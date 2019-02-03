@@ -6,14 +6,31 @@
 
 <nav th:replace="fragments :: nav"></nav>
 
-<form method="post" style="max-width:600px;">
+<form method="post" style="max-width:600px;" th:object="${client}">
     <div class="form-group">
-        <label for="name-field">Client Name</label>
-        <input class="form-control" id="name-field" type="text" name="name" />
+        <label th:for="name">Client Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
     </div>
     <div class="form-group">
-        <label for="contact-field">Contact Name</label>
-        <input class="form-control" id="contact-field" type="text" name="contact" />
+        <label th:for="contact">Contact Name</label>
+        <input class="form-control" th:field="*{contact}" />
+        <span th:errors="*{contact}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="location">Office Location</label>
+        <input class="form-control" th:field="*{location}" />
+        <span th:errors="*{location}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="startDate">Contract Start Date</label>
+        <input class="form-control" type="date" th:field="*{startDate}" />
+        <span th:errors="*{startDate}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="endDate">Contract End Date</label>
+        <input class="form-control" type="date" th:field="*{endDate}" />
+        <span th:errors="*{endDate}" class="error"></span>
     </div>
     <input type="submit" value="Add Client" />
 </form>
