@@ -19,7 +19,6 @@ public class ClientController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
-
         model.addAttribute("clients", ClientData.getAll());
         model.addAttribute("title", "SPC Clients");
         return "clients/index";

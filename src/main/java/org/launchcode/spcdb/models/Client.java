@@ -1,13 +1,16 @@
 package org.launchcode.spcdb.models;
 
 import javax.persistence.Entity;
-import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-//@Entity
+@Entity
 public class Client {
 
+    @Id
+    @GeneratedValue
     private int clientId;
-    private static int nextId = 1;
+
     private String name;
     private String contact;
     private String location;
@@ -15,13 +18,8 @@ public class Client {
     private String endDate;
     private Integer employeeCount;
 
-    public Client() {
-        clientId = nextId;
-        nextId++;
-    }
-
     public Client(String name, String contact, String location, String startDate, String endDate, Integer employeeCount) {
-        this();
+        this.clientId = clientId;
         this.name = name;
         this.contact = contact;
         this.location = location;
@@ -29,6 +27,8 @@ public class Client {
         this.endDate = endDate;
         this.employeeCount = employeeCount;
     }
+
+    public Client () {}
 
     public int getClientId() {
         return clientId;
