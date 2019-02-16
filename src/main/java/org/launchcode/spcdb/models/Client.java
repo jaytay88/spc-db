@@ -3,6 +3,8 @@ package org.launchcode.spcdb.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Client {
@@ -11,12 +13,28 @@ public class Client {
     @GeneratedValue
     private int clientId;
 
+    @NotNull
+    @Size(min=1, message = "Must enter client name")
     private String name;
+
+    @NotNull
+    @Size(min=1, message= "Must enter contact's name")
     private String contact;
+
+    @NotNull
+    @Size(min=1, message="Must enter primary office location")
     private String location;
+
+    @NotNull(message="Must enter contract start date")
     private String startDate;
+
+    @NotNull(message="Must enter contract end date")
     private String endDate;
+
+    @NotNull(message="Must enter employee count")
     private Integer employeeCount;
+
+    private PhilanthropyInterest interest;
 
     public Client(String name, String contact, String location, String startDate, String endDate, Integer employeeCount) {
         this.clientId = clientId;
@@ -84,5 +102,13 @@ public class Client {
 
     public void setEmployeeCount(Integer employeeCount) {
         this.employeeCount = employeeCount;
+    }
+
+    public PhilanthropyInterest getInterest() {
+        return interest;
+    }
+
+    public void setInterest(PhilanthropyInterest interest) {
+        this.interest = interest;
     }
 }

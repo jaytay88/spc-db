@@ -2,6 +2,7 @@ package org.launchcode.spcdb.controllers;
 
 import org.launchcode.spcdb.models.Client;
 import org.launchcode.spcdb.models.ClientData;
+import org.launchcode.spcdb.models.PhilanthropyInterest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -28,6 +29,7 @@ public class ClientController {
     public String displayAddClientForm(Model model) {
         model.addAttribute("title", "Add Client");
         model.addAttribute(new Client());
+        model.addAttribute("philanthropyInterests", PhilanthropyInterest.values());
         return "clients/add";
     }
 
@@ -62,3 +64,4 @@ public class ClientController {
 
 
 }
+

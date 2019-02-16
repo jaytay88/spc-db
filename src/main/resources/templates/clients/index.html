@@ -2,32 +2,34 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-    <h1 th:text="${title}">Default Title</h1>
+<h1 th:text="${title}">Default Title</h1>
 
-    <nav th:replace="fragments :: nav"></nav>
+<nav th:replace="fragments :: nav"></nav>
 
-    <p th:unless="${clients} and ${clients.size()}">No Current Clients</p>
+<p th:unless="${clients} and ${clients.size()}">No Current Clients</p>
 
-    <table class="table">
+<table class="table">
 
-        <tr>
-            <th>Name</th>
-            <th>Contact Name</th>
-            <th>Office Location</th>
-            <th>Contract Start Date</th>
-            <th>Contract End Date</th>
-            <th>Number of Employees</th>
-        </tr>
+    <tr>
+        <th>Name</th>
+        <th>Contact Name</th>
+        <th>Office Location</th>
+        <th>Contract Start Date</th>
+        <th>Contract End Date</th>
+        <th>Number of Employees</th>
+        <th>Philanthropic Interest</th>
+    </tr>
 
-        <tr th:each="client : ${clients}">
-            <td th:text="${client.name}"></td>
-            <td th:text="${client.contact}"></td>
-            <td th:text="${client.location}"></td>
-            <td th:text="${client.startDate}"></td>
-            <td th:text="${client.endDate}"></td>
-            <td th:text="${client.employeeCount}"></td>
-        </tr>
-    </table>
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.contact}"></td>
+        <td th:text="${client.location}"></td>
+        <td th:text="${client.startDate}"></td>
+        <td th:text="${client.endDate}"></td>
+        <td th:text="${client.employeeCount}"></td>
+        <td th:text="${client.type.name}"></td>
+    </tr>
+</table>
 
 </body>
 </html>

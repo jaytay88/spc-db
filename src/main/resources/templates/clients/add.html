@@ -37,6 +37,14 @@
         <input class="form-control" type="number" th:field="*{employeeCount}" />
         <span th:errors="*{employeeCount}" class="error"></span>
     </div>
+    <div class="form-group">
+        <label th:for="interest">Philanthropic Interest</label>
+        <select th:field="*{interest}">
+            <option th:each="philanthropyInterest : ${philanthropyInterests}"
+                    th:text="${philanthropyInterest.name}"
+                    th:value="${philanthropyInterest}"></option>
+        </select>
+    </div>
     <input type="submit" value="Add Client" />
 </form>
 
